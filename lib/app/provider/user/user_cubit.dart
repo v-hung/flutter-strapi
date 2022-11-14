@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
-  UserCubit() : super(UserInitial());
+  UserCubit() : super(const UserInitial());
 
   Future<void> login({required email, required password}) async {
     try {
