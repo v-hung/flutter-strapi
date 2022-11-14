@@ -1,0 +1,1 @@
+const HOST = 'strapi.viethung.fun';

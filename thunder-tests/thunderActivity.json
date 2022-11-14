@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "c8a8fb3a-d898-4bd6-8409-edccb17d4228",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/auth/local",
+    "url": "strapi.viethung.fun/api/auth/local",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-11-14T11:50:57.438Z",
+    "modified": "2022-11-14T11:50:57.591Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

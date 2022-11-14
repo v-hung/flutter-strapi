@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/app/provider/user/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:auto_route/auto_route.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,10 +15,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  bool loading = false;
+  final emailController = TextEditingController(text: 'viet.hung.2898@gmail.com');
+  final passwordController = TextEditingController(text: 'Admin123!');
 
   @override
   void dispose() {
@@ -30,14 +29,11 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     
     Future<void> login() async {
-      setState(() {
-        loading = true;
-      });
-      await Future.delayed(Duration(seconds: 1));
-      await context.read<UserCubit>().login();
-      setState(() {
-        loading = false;
-      });
+      await context.read<UserCubit>().login(
+        email: emailController.text,
+        password: passwordController.text
+      );
+      // context.router.pushNamed('/');
     }
 
     return Stack(
@@ -68,7 +64,20 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 50,),
             BlocBuilder<UserCubit, UserState>(
               builder: (context, state) {
-                return Text(state.user?.email ?? 'null');
+                if (state is UserError) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      state.error,
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 16
+                      ),
+                    ),
+                  );
+                }
+                return const SizedBox.shrink();
+                // return Text(state.user?.email ?? 'null');
               },
             ),
 
@@ -172,30 +181,28 @@ class _LoginPageState extends State<LoginPage> {
             )
           ],
         ),
-        if (loading) Positioned(
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0,
-          child: Container(
-            color: Colors.grey.withOpacity(0.5),
-            child: const SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: Center(child: CircularProgressIndicator())
-            )
-          ),
-        )
+        BlocBuilder<UserCubit, UserState>(
+          builder: (context, state) {
+            if (state is UserLoading) {
+              return Positioned(
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                child: Container(
+                  color: Colors.grey.withOpacity(0.5),
+                  child: const SizedBox(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Center(child: CircularProgressIndicator())
+                  )
+                ),
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ],
     );
-  }
-
-  Widget? LoadingWidget() {
-    if (loading) {
-      Text("dsf");
-    }
-    else {
-      null;
-    }
   }
 }

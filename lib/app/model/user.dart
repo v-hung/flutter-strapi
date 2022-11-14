@@ -1,11 +1,15 @@
 class User {
-  final String name;
+  final int id;
   final String username;
   final String email;
 
-  const User({required this.name, required this.username, required this.email});
+  const User({required this.id, required this.username, required this.email});
 
-  toMap() {}
-
-  static fromMap(Map<String, dynamic> map) {}
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'] as int, 
+      username: json['username'] as String, 
+      email: json['email'] as String
+    );
+  }
 }
