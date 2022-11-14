@@ -7,7 +7,11 @@ import 'package:meta/meta.dart';
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
-  UserCubit() : super(UserInitial());
+  UserCubit() : super(UserState());
 
-  // void login
+  Future<void> login() async {
+    const user = User(name: 'hung', username: 'viethung', email: 'viethung');
+    print({user});
+    emit(UserState(user: user));
+  }
 }
