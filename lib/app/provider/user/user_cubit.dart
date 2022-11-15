@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:flutter_application_1/app/model/user.dart';
 import 'package:flutter_application_1/utils/fetch.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 
@@ -30,13 +31,15 @@ class UserCubit extends Cubit<UserState> {
 
       var data = json.decode(res.body);
 
-      print(data['user']);
-
       User user = User.fromJson(data['user']);
       emit(UserLoaded(user: user));
+
+      final storage = new FlutterSecureStorage();
+      await storage.write(key: 'token', value: data['jwt']);
     }
     catch(e) {
       emit(const UserError(error: 'Email or Password is correct'));
+      rethrow;
     }
 
     // print({email, password});

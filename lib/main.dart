@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => UserCubit(),
       child: MaterialApp.router(
-        debugShowCheckedModeBanner: false ,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         title: 'My app',
         routerDelegate: _appRouter.delegate(),      
         routeInformationParser: _appRouter.defaultRouteParser(),

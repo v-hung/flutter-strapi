@@ -6,22 +6,24 @@ import 'package:flutter_application_1/app/provider/user/user_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
 
-  final emailController = TextEditingController(text: 'viet.hung.2898@gmail.com');
-  final passwordController = TextEditingController(text: 'Admin123!');
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final rePasswordController = TextEditingController();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    rePasswordController.dispose();
     super.dispose();
   }
 
@@ -135,6 +137,31 @@ class _LoginPageState extends State<LoginPage> {
 
             const SizedBox(height: 10,),
 
+            // password field
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.circular(12)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: TextField(
+                    controller: rePasswordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'RePassword'
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 10,),
+
             // button signin
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -150,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: const Center(
                     child: Text(
-                      "Sign In",
+                      "Register",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -169,7 +196,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Not a member?",
+                  "Have a account?",
                   style: TextStyle(
                     fontWeight: FontWeight.bold
                   ),
@@ -177,10 +204,10 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(width: 10,),
                 GestureDetector(
                   onTap: () {
-                    context.router.pushNamed('/auth/register');
+                    context.router.pushNamed('/auth/login');
                   },
                   child: const Text(
-                    'Register now',
+                    'Login now',
                     style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.bold
