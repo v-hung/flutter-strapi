@@ -53,13 +53,13 @@ class _HomeAppbarState extends State<HomeAppbar> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.favorite_border),
-                    iconSize: 30,
+                    iconSize: 28,
                     color: Colors.grey,
                     onPressed: () {  },
                   ),
                   IconButton(
                     icon: const Icon(Icons.notifications_none_outlined),
-                    iconSize: 30,
+                    iconSize: 28,
                     color: Colors.grey,
                     onPressed: () {  },
                   )

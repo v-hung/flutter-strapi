@@ -190,6 +190,35 @@ class _HomePageState extends State<HomePage> {
                 children: indicators(5,activePage)
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  // mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    for(var i = 0; i < 10; i++)
+                      Container(
+                        margin: const EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Color.fromARGB(255, 203, 221, 235))
+                        ),
+                        child: Icon(
+                          Icons.agriculture_sharp,
+                          size: 30,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    const SizedBox(width: 20,)
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       )
@@ -212,7 +241,7 @@ class _HomePageState extends State<HomePage> {
           width: 10,
           height: 10,
           decoration: BoxDecoration(
-            color: currentIndex == index ? Colors.black : Colors.black26,
+            color: currentIndex == index ? Colors.blue : Colors.grey,
             shape: BoxShape.circle
           ),
         ),
