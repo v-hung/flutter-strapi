@@ -14,14 +14,19 @@
 import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
 
+import '../middleware/auth.dart' as _i7;
 import '../pages/auth/_layout.dart' as _i2;
 import '../pages/auth/login.dart' as _i3;
 import '../pages/auth/register.dart' as _i4;
 import '../pages/home/page.dart' as _i1;
 
 class AppRouter extends _i5.RootStackRouter {
-  AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+  AppRouter({
+    _i6.GlobalKey<_i6.NavigatorState>? navigatorKey,
+    required this.authGuard,
+  }) : super(navigatorKey);
+
+  final _i7.AuthGuard authGuard;
 
   @override
   final Map<String, _i5.PageFactory> pagesMap = {
@@ -56,6 +61,7 @@ class AppRouter extends _i5.RootStackRouter {
         _i5.RouteConfig(
           HomeRoute.name,
           path: '/',
+          guards: [authGuard],
         ),
         _i5.RouteConfig(
           AuthLayout.name,

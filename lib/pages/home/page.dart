@@ -192,33 +192,144 @@ class _HomePageState extends State<HomePage> {
             ),
 
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Category",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo
+                    ),
+                  ),
+                  Text(
+                    "More Category",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minWidth: MediaQuery.of(context).size.width,
+                ),
                 child: Row(
-                  // mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     for(var i = 0; i < 10; i++)
                       Container(
                         margin: const EdgeInsets.only(left: 20),
-                        padding: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Color.fromARGB(255, 203, 221, 235))
-                        ),
-                        child: Icon(
-                          Icons.agriculture_sharp,
-                          size: 30,
-                          color: Colors.blue,
+                        width: 80,
+                        child: Column(
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 1/1,
+                              child: Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: Color.fromARGB(255, 203, 221, 235))
+                                ),
+                                child: Icon(
+                                  Icons.agriculture_sharp,
+                                  size: 30,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Text(
+                                "Woman",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 14
+                                ),
+                              ),
+                          ],
                         ),
                       ),
                     const SizedBox(width: 20,)
                   ],
                 ),
               ),
-            )
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Category",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo
+                    ),
+                  ),
+                  Text(
+                    "More Category",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minWidth: MediaQuery.of(context).size.width,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    for(var i = 0; i < 10; i++)
+                      Container(
+                        margin: const EdgeInsets.only(left: 20),
+                        width: 80,
+                        child: Column(
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 1/1,
+                              child: Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: Color.fromARGB(255, 203, 221, 235))
+                                ),
+                                child: Icon(
+                                  Icons.agriculture_sharp,
+                                  size: 30,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Text(
+                                "Woman",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 14
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    const SizedBox(width: 20,)
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       )
