@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomeBottom extends StatelessWidget {
-  const HomeBottom({super.key});
+  final tabsRouter;
+  const HomeBottom({super.key, this.tabsRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +21,12 @@ class HomeBottom extends StatelessWidget {
           )
         ),
         child: BottomNavigationBar(
-          currentIndex: 0,
+          currentIndex: tabsRouter.activeIndex, 
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.blue,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),
               label: 'Home',  
             ),
             BottomNavigationBarItem(
@@ -33,11 +34,11 @@ class HomeBottom extends StatelessWidget {
               label: 'Explore',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(Icons.shopping_cart_outlined),
               label: 'Cart',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_offer),
+              icon: Icon(Icons.local_offer_outlined),
               label: 'Offer',
             ),
             BottomNavigationBarItem(
@@ -46,7 +47,7 @@ class HomeBottom extends StatelessWidget {
             ),
           ],
           onTap: (int index) {
-          
+            tabsRouter.setActiveIndex(index);          
           },
         ),
       ),

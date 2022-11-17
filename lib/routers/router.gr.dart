@@ -11,89 +11,137 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i6;
-import 'package:flutter/material.dart' as _i7;
+import 'package:auto_route/auto_route.dart' as _i10;
+import 'package:flutter/material.dart' as _i11;
 
-import '../middleware/auth.dart' as _i8;
+import '../middleware/auth.dart' as _i12;
 import '../pages/auth/_layout.dart' as _i2;
-import '../pages/auth/login.dart' as _i4;
-import '../pages/auth/register.dart' as _i5;
+import '../pages/auth/login.dart' as _i8;
+import '../pages/auth/register.dart' as _i9;
 import '../pages/home/_layout.dart' as _i1;
+import '../pages/home/account/page.dart' as _i7;
+import '../pages/home/cart/page.dart' as _i5;
+import '../pages/home/explore/page.dart' as _i4;
+import '../pages/home/offer/page.dart' as _i6;
 import '../pages/home/page.dart' as _i3;
 
-class AppRouter extends _i6.RootStackRouter {
+class AppRouter extends _i10.RootStackRouter {
   AppRouter({
-    _i7.GlobalKey<_i7.NavigatorState>? navigatorKey,
+    _i11.GlobalKey<_i11.NavigatorState>? navigatorKey,
     required this.authGuard,
   }) : super(navigatorKey);
 
-  final _i8.AuthGuard authGuard;
+  final _i12.AuthGuard authGuard;
 
   @override
-  final Map<String, _i6.PageFactory> pagesMap = {
+  final Map<String, _i10.PageFactory> pagesMap = {
     HomeLayout.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i10.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.HomeLayout(),
       );
     },
     AuthLayout.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i10.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.AuthLayout(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i10.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i3.HomePage(),
       );
     },
-    LoginRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+    ExploreRoute.name: (routeData) {
+      return _i10.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.LoginPage(),
+        child: const _i4.ExplorePage(),
+      );
+    },
+    CartRoute.name: (routeData) {
+      return _i10.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i5.CartPage(),
+      );
+    },
+    OfferRoute.name: (routeData) {
+      return _i10.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i6.OfferPage(),
+      );
+    },
+    AccountRoute.name: (routeData) {
+      return _i10.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i7.AccountPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return _i10.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i8.LoginPage(),
       );
     },
     RegisterRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i10.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i5.RegisterPage(),
+        child: const _i9.RegisterPage(),
       );
     },
   };
 
   @override
-  List<_i6.RouteConfig> get routes => [
-        _i6.RouteConfig(
+  List<_i10.RouteConfig> get routes => [
+        _i10.RouteConfig(
           HomeLayout.name,
           path: '/',
           guards: [authGuard],
           children: [
-            _i6.RouteConfig(
+            _i10.RouteConfig(
               HomeRoute.name,
               path: '',
               parent: HomeLayout.name,
-            )
+            ),
+            _i10.RouteConfig(
+              ExploreRoute.name,
+              path: 'explore',
+              parent: HomeLayout.name,
+            ),
+            _i10.RouteConfig(
+              CartRoute.name,
+              path: 'cart',
+              parent: HomeLayout.name,
+            ),
+            _i10.RouteConfig(
+              OfferRoute.name,
+              path: 'offer',
+              parent: HomeLayout.name,
+            ),
+            _i10.RouteConfig(
+              AccountRoute.name,
+              path: 'account',
+              parent: HomeLayout.name,
+            ),
           ],
         ),
-        _i6.RouteConfig(
+        _i10.RouteConfig(
           AuthLayout.name,
           path: '/auth',
           children: [
-            _i6.RouteConfig(
+            _i10.RouteConfig(
               '#redirect',
               path: '',
               parent: AuthLayout.name,
               redirectTo: 'login',
               fullMatch: true,
             ),
-            _i6.RouteConfig(
+            _i10.RouteConfig(
               LoginRoute.name,
               path: 'login',
               parent: AuthLayout.name,
             ),
-            _i6.RouteConfig(
+            _i10.RouteConfig(
               RegisterRoute.name,
               path: 'register',
               parent: AuthLayout.name,
@@ -105,8 +153,8 @@ class AppRouter extends _i6.RootStackRouter {
 
 /// generated route for
 /// [_i1.HomeLayout]
-class HomeLayout extends _i6.PageRouteInfo<void> {
-  const HomeLayout({List<_i6.PageRouteInfo>? children})
+class HomeLayout extends _i10.PageRouteInfo<void> {
+  const HomeLayout({List<_i10.PageRouteInfo>? children})
       : super(
           HomeLayout.name,
           path: '/',
@@ -118,8 +166,8 @@ class HomeLayout extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AuthLayout]
-class AuthLayout extends _i6.PageRouteInfo<void> {
-  const AuthLayout({List<_i6.PageRouteInfo>? children})
+class AuthLayout extends _i10.PageRouteInfo<void> {
+  const AuthLayout({List<_i10.PageRouteInfo>? children})
       : super(
           AuthLayout.name,
           path: '/auth',
@@ -131,7 +179,7 @@ class AuthLayout extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.HomePage]
-class HomeRoute extends _i6.PageRouteInfo<void> {
+class HomeRoute extends _i10.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -142,8 +190,56 @@ class HomeRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.LoginPage]
-class LoginRoute extends _i6.PageRouteInfo<void> {
+/// [_i4.ExplorePage]
+class ExploreRoute extends _i10.PageRouteInfo<void> {
+  const ExploreRoute()
+      : super(
+          ExploreRoute.name,
+          path: 'explore',
+        );
+
+  static const String name = 'ExploreRoute';
+}
+
+/// generated route for
+/// [_i5.CartPage]
+class CartRoute extends _i10.PageRouteInfo<void> {
+  const CartRoute()
+      : super(
+          CartRoute.name,
+          path: 'cart',
+        );
+
+  static const String name = 'CartRoute';
+}
+
+/// generated route for
+/// [_i6.OfferPage]
+class OfferRoute extends _i10.PageRouteInfo<void> {
+  const OfferRoute()
+      : super(
+          OfferRoute.name,
+          path: 'offer',
+        );
+
+  static const String name = 'OfferRoute';
+}
+
+/// generated route for
+/// [_i7.AccountPage]
+class AccountRoute extends _i10.PageRouteInfo<void> {
+  const AccountRoute()
+      : super(
+          AccountRoute.name,
+          path: 'account',
+        );
+
+  static const String name = 'AccountRoute';
+}
+
+/// generated route for
+/// [_i8.LoginPage]
+class LoginRoute extends _i10.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
@@ -154,8 +250,8 @@ class LoginRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.RegisterPage]
-class RegisterRoute extends _i6.PageRouteInfo<void> {
+/// [_i9.RegisterPage]
+class RegisterRoute extends _i10.PageRouteInfo<void> {
   const RegisterRoute()
       : super(
           RegisterRoute.name,

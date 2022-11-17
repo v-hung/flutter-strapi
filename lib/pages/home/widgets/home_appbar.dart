@@ -58,7 +58,20 @@ class _HomeAppbarState extends State<HomeAppbar> {
                     onPressed: () {  },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.notifications_none_outlined),
+                    icon: Stack(
+                      children: const [
+                        Icon(Icons.notifications_none_outlined),
+                        Positioned(
+                          top: 1.0,
+                          right: 5.0,
+                          child: Icon(
+                            Icons.brightness_1, 
+                            size: 10.0, 
+                            color: Colors.redAccent
+                          ),
+                        )
+                      ]
+                    ),
                     iconSize: 28,
                     color: Colors.grey,
                     onPressed: () {  },
