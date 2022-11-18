@@ -17,7 +17,7 @@ class OfferPage extends StatelessWidget {
             ),
           ),
           child: Text(
-            "Account",
+            "Offer",
             style: TextStyle(
               color: Colors.indigo[900],
               fontWeight: FontWeight.bold,

@@ -18,7 +18,7 @@ class CartPage extends StatelessWidget {
             ),
           ),
           child: Text(
-            "Account",
+            "Your Cart",
             style: TextStyle(
               color: Colors.indigo[900],
               fontWeight: FontWeight.bold,
@@ -37,8 +37,55 @@ class CartPage extends StatelessWidget {
                   for(var i = 0; i < 3; i++)
                     CartItem(),
 
-                  Container(
-                    child: Text("hihi"),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(5),
+                                bottomLeft: Radius.circular(5),
+                              ),
+                              border: Border.all(color: Colors.grey[300]!),
+                            ),
+                            child: TextField(
+                              controller: TextEditingController(text: ''),
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                hintText: 'Enter Cupon Code'
+                              ),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: (){}, 
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.lightBlue,
+                            // minimumSize: Size.zero, // Set this
+                            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                bottomRight: Radius.circular(5),
+                              ),
+                            )
+                          ),
+                          child: Text(
+                            "Apply",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+
+                        ),
+                      ],
+                    ),
                   )
 
                 ],
