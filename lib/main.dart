@@ -40,7 +40,14 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            color: Colors.grey[800]
+          )
+        )
+      ),
       scrollBehavior: AppScrollBehavior(),
       title: 'My app',
       routerDelegate: _appRouter.delegate(),      
