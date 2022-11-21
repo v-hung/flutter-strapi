@@ -1,17 +1,11 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter_application_1/config/app.dart';
-import 'package:flutter_application_1/app/model/user.dart';
-import 'package:flutter_application_1/utils/fetch.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:meta/meta.dart';
-import 'package:http/http.dart' as http;
 
-part 'user_state.dart';
+part 'flash_sale_state.dart';
 
-class UserCubit extends Cubit<UserState> {
-  UserCubit() : super(const UserInitial());
+class FlashSaleCubit extends Cubit<FlashSaleState> {
+  FlashSaleCubit() : super(FlashSaleInitial());
 
   Future<void> login({required email, required password}) async {
     try {
@@ -32,15 +26,22 @@ class UserCubit extends Cubit<UserState> {
       var data = json.decode(res.body);
 
       User user = User.fromJson(data['user']);
+      emit(UserLoaded(user: user));
 
       final storage = new FlutterSecureStorage();
       await storage.write(key: 'token', value: data['jwt']);
-      
-      emit(UserLoaded(user: user));
     }
     catch(e) {
       emit(const UserError(error: 'Email or Password is correct'));
       rethrow;
     }
+
+    // print({email, password});
+
+    // const user = User(name: 'hung', username: 'viethung', email: 'viethung');
+    // print({user});
+    // emit(UserState(user: user));
   }
 }
+
+// strapi.viethung.fun/api/collections?filters[slug][$eq]=flash-sale&populate[0]=image,products&populate[1]=products.image

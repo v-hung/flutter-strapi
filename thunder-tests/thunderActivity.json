@@ -8,9 +8,49 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-14T11:50:57.438Z",
-    "modified": "2022-11-14T11:50:57.591Z",
+    "modified": "2022-11-21T08:11:11.881Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"identifier\": \"viet.hung.2898@gmail.com\",\n  \"password\": \"Admin123!\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "85b53348-75f3-4984-8887-634076337933",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/collections?filters[slug][$eq]=flash-sale&populate[0]=image,products&populate[1]=products.image",
+    "url": "strapi.viethung.fun/api/collections?filters[slug][$eq]=flash-sale&populate[0]=image,products&populate[1]=products.image",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-21T09:06:33.984Z",
+    "modified": "2022-11-21T09:06:33.984Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MDE4MjcxLCJleHAiOjE2NzE2MTAyNzF9.GE0SabiHL_6k_Ev3njqchwlUZv50SgUsY_H8A2Xl2AQ"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[slug][$eq]",
+        "value": "flash-sale",
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "image,products",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "products.image",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]
