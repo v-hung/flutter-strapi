@@ -17,8 +17,8 @@ class FlashSaleCubit extends Cubit<FlashSaleState> {
       await Future.delayed(const Duration(seconds: 1));
       var params = {
         'filters[slug][\$eq]': 'flash-sale',
-        'populate[0]': 'image,products',
-        'populate[1]': 'products.image'
+        // 'populate[0]': 'image,products',
+        // 'populate[1]': 'products.image'
       };
       var url = Uri.https(HOST, 'api/collections', params);
       var res = await http.get(url);
@@ -28,8 +28,7 @@ class FlashSaleCubit extends Cubit<FlashSaleState> {
       }
 
       var dataJSON = json.decode(res.body);
-      print((dataJSON['data']?.isEmpty));
-      Collection data = Collection.fromJson(dataJSON);
+      Collection data = Collection.fromMap(dataJSON['data'][0]);
       emit(FlashSaleLoaded(flash_sale: data));
     }
     catch(e) {

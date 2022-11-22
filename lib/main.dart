@@ -7,8 +7,6 @@ import 'package:flutter_application_1/pages/home/page.dart';
 import 'package:flutter_application_1/routers/router.gr.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'app/provider/counter/counter_cubit.dart';
-
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
