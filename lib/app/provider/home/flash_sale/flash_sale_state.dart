@@ -14,8 +14,8 @@ class FlashSaleLoading extends FlashSaleState {
 }
 
 class FlashSaleLoaded extends FlashSaleState {
-  final FlashSale? FlashSale;
-  const FlashSaleLoaded({this.FlashSale});
+  final Collection? flash_sale;
+  const FlashSaleLoaded({this.flash_sale});
 }
 
 class FlashSaleError extends FlashSaleState {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/home/widgets/flash_sale.dart';
 import 'package:flutter_application_1/pages/home/widgets/home_appbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_application_1/pages/home/widgets/home_bottom.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _pageController = PageController(initialPage: 0, viewportFraction: 1.05);
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -265,116 +268,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
           
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 40),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Flash sale",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.indigo[900]
-                        ),
-                      ),
-                      Text(
-                        "See More",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.lightBlue[600]
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: MediaQuery.of(context).size.width,
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        for(var i = 0; i < 10; i++)
-                          Container(
-                            margin: const EdgeInsets.only(left: 20),
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Color.fromARGB(255, 203, 221, 235)),
-                              borderRadius: BorderRadius.circular(6),
-                            ),
-                            width: 160,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                AspectRatio(
-                                  aspectRatio: 1/1,
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(6),
-                                      image: DecorationImage(
-                                        image: NetworkImage("https://cf.shopee.vn/file/84c099fcf4fbe3a29792512b4a86e9dc",),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      color: Colors.grey
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 10,),
-                                Text(
-                                  "Giày thể thao sneaker nam nữ PEAK Culture E14611B",
-                                  // textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.indigo[900],
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                const SizedBox(height: 15,),
-                                const Text(
-                                  "714,000₫",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    color: Colors.lightBlue,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                  ),
-                                ),
-                                const SizedBox(height: 15,),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "1,190,000₫",
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        decoration: TextDecoration.lineThrough,
-                                        fontSize: 14
-                                      ),
-                                    ),
-                                    SizedBox(width: 10,),
-                                    Text(
-                                      "40% off",
-                                      style: TextStyle(
-                                        color: Colors.red,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        const SizedBox(width: 20,)
-                      ],
-                    ),
-                  ),
-                ),
+                const FlashSaleHome(),
           
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 40),

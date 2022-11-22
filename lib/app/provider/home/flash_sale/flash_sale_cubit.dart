@@ -1,39 +1,41 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
+import 'package:flutter_application_1/app/model/collection.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:meta/meta.dart';
+import 'package:http/http.dart' as http;
 
 part 'flash_sale_state.dart';
 
 class FlashSaleCubit extends Cubit<FlashSaleState> {
   FlashSaleCubit() : super(FlashSaleInitial());
 
-  Future<void> login({required email, required password}) async {
+  Future<void> loadData() async {
     try {
-      emit(const UserLoading());
+      emit(const FlashSaleLoading());
       await Future.delayed(const Duration(seconds: 1));
-      var url = Uri.https(HOST, 'api/auth/local');
-      var res = await http.post(url, 
-        body: {
-          'identifier': email, 
-          'password': password
-        }
-      );
+      var params = {
+        'filters[slug][\$eq]': 'flash-sale',
+        'populate[0]': 'image,products',
+        'populate[1]': 'products.image'
+      };
+      var url = Uri.https(HOST, 'api/collections', params);
+      var res = await http.get(url);
 
       if (res.statusCode != 200) {
         throw Exception(res.reasonPhrase);
       }
 
-      var data = json.decode(res.body);
-
-      User user = User.fromJson(data['user']);
-      emit(UserLoaded(user: user));
-
-      final storage = new FlutterSecureStorage();
-      await storage.write(key: 'token', value: data['jwt']);
+      var dataJSON = json.decode(res.body);
+      print((dataJSON['data']?.isEmpty));
+      Collection data = Collection.fromJson(dataJSON);
+      emit(FlashSaleLoaded(flash_sale: data));
     }
     catch(e) {
-      emit(const UserError(error: 'Email or Password is correct'));
-      rethrow;
+      print(e);
+      emit(const FlashSaleError(error: 'Error'));
+      // rethrow;
     }
 
     // print({email, password});
