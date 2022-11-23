@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/provider/home/flash_sale/flash_sale_cubit.dart';
+import 'package:flutter_application_1/app/provider/home/mega_sale/mega_sale_cubit.dart';
 import 'package:flutter_application_1/utils/price.dart';
 import 'package:flutter_application_1/widgets/CustomNetworkImage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/auto_route.dart'; 
 
-class FlashSaleHome extends StatelessWidget {
-  const FlashSaleHome({super.key});
+class MegaSaleHome extends StatelessWidget {
+  const MegaSaleHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class FlashSaleHome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Flash sale",
+                "Mega sale",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -43,9 +43,9 @@ class FlashSaleHome extends StatelessWidget {
             constraints: BoxConstraints(
               minWidth: MediaQuery.of(context).size.width,
             ),
-            child: BlocBuilder<FlashSaleCubit, FlashSaleState>(
+            child: BlocBuilder<MegaSaleCubit, MegaSaleState>(
               builder: (context, state) {
-                if (state is FlashSaleLoading) {
+                if (state is MegaSaleLoading) {
                   return Row(
                     children: List.filled(5, null, growable: false).map((e) {
                       return Shimmer.fromColors(
@@ -114,10 +114,10 @@ class FlashSaleHome extends StatelessWidget {
                     }).toList()
                   );
                 }
-                else if (state is FlashSaleLoaded) {
+                else if (state is MegaSaleLoaded) {
                   return Row(
                     children: <Widget>[
-                      for(final product in state.flash_sale.attributes.products.data)
+                      for(final product in state.mega_sale.attributes.products.data)
                         GestureDetector(
                           onTap: () {
                             context.router.pushNamed('/products/${product.attributes.slug}');
@@ -207,7 +207,7 @@ class FlashSaleHome extends StatelessWidget {
                     ],
                   );
                 }
-                else if (state is FlashSaleError) {
+                else if (state is MegaSaleError) {
                   return const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Text("Error"),
