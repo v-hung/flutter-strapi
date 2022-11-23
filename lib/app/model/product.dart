@@ -44,18 +44,17 @@ class Product {
     }
   }
 
-  List<Image>? getImages() {
-    List<Image>? l = [];
+  List<ImageData> getImages() {
+    List<ImageData> l = [];
     if (this.attributes.media != null) {
-      // l = this.attributes.media?.data;
-      for(var i = 0; i < (this.attributes.media?.data ?? []).length; i++) {
-        // l.add(item);
-        Image? c = this.attributes.media?.data[i] != null ? this.attributes.media?.data[i] as Image : null;
-        print(c);
+      for(var item in this.attributes.media!.data) {
+        ImageData c = ImageData.fromJson(item.toJson());
+
+        l.add(c);
       }
     }
     else if (this.attributes.image != null) {
-      l.add(this.attributes.image);
+      l.add(this.attributes.image.data!);
     }
     return l;
   }

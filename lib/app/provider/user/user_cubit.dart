@@ -15,7 +15,7 @@ class UserCubit extends Cubit<UserState> {
   Future<void> login({required email, required password}) async {
     try {
       emit(const UserLoading());
-      await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 1));
       var url = Uri.https(HOST, 'api/auth/local');
       var res = await http.post(url, 
         body: {

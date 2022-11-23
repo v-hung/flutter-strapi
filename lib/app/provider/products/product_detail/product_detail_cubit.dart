@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter_application_1/app/model/ImageList.dart';
 import 'package:flutter_application_1/app/model/Product.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:meta/meta.dart';
@@ -14,7 +15,7 @@ class ProductDetailCubit extends Cubit<ProductDetailState> {
   Future<void> loadData(String slug) async {
     try {
       emit(const ProductDetailLoading());
-      await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 1));
       var params = {
         'filters[slug][\$eq]': slug,
         'populate[0]': 'image,media',
@@ -29,10 +30,11 @@ class ProductDetailCubit extends Cubit<ProductDetailState> {
       var dataJSON = json.decode(res.body);
       // print(dataJSON['data'][0]['attributes']['media']);
       Product data = Product.fromMap(dataJSON['data'][0]);
-      // print(data);
+      // print(data.attributes.media?.toJson());
       emit(ProductDetailLoaded(product: data));
     }
     catch(e) {
+      print(e);
       emit(const ProductDetailError(error: 'Error'));
     }
   }

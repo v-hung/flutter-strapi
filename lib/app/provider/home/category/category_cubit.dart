@@ -12,7 +12,7 @@ class CategoryCubit extends Cubit<CategoryState> {
   Future<void> loadData() async {
     try {
       emit(const CategoryLoading());
-      await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 1));
       var params = {
         'populate[0]': 'icon'
       };

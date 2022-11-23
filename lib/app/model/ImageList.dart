@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter_application_1/app/model/Image.dart';
 
 class ImageList {
-  final List<Image> data;
+  final List<ImageData> data;
   ImageList({
     required this.data,
   });
@@ -17,7 +17,7 @@ class ImageList {
 
   factory ImageList.fromMap(Map<String, dynamic> map) {
     return ImageList(
-      data: List<Image>.from((map['data'] as List<dynamic>).map<Image>((x) => Image.fromMap(x as Map<String,dynamic>),),),
+      data: List<ImageData>.from((map['data'] as List<dynamic>).map<ImageData>((x) => ImageData.fromMap(x as Map<String,dynamic>),),),
     );
   }
 

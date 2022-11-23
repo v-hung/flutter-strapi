@@ -14,7 +14,7 @@ class FlashSaleCubit extends Cubit<FlashSaleState> {
   Future<void> loadData() async {
     try {
       emit(const FlashSaleLoading());
-      await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 1));
       var params = {
         'filters[slug][\$eq]': 'flash-sale',
         'populate[0]': 'image,products',

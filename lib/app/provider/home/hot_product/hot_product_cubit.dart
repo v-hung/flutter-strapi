@@ -14,7 +14,7 @@ class HotProductCubit extends Cubit<HotProductState> {
   Future<void> loadData() async {
     try {
       emit(const HotProductLoading());
-      await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 1));
       var params = {
         'filters[slug][\$eq]': 'product-hot',
         'populate[0]': 'image,products',
