@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/app/provider/products/product_detail/product_detail_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:auto_route/auto_route.dart';
 
 class ProductAppbar extends StatelessWidget {
   const ProductAppbar({super.key});
@@ -20,7 +21,9 @@ class ProductAppbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
-              onPressed: () {}, 
+              onPressed: () {
+                context.router.navigateBack();
+              }, 
               iconSize: 20,
               color: Colors.grey,
               icon: const Icon(Icons.arrow_back_ios_new_rounded)

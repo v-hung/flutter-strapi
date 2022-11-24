@@ -22,22 +22,22 @@ class Product {
   }
 
   String getImage() {
-    return "https://" + HOST + (this.attributes.image.data?.attributes.url ?? "");
+    return "https://$HOST${attributes.image.data?.attributes.url ?? ""}";
   }
 
   String getPrice() {
-    if (this.attributes.promotional_price != null) {
-      return formatPrice(this.attributes.promotional_price ?? 0);
+    if (attributes.promotional_price != null) {
+      return formatPrice(attributes.promotional_price ?? 0);
     }
     else {
-      return formatPrice(this.attributes.price ?? 0);
+      return formatPrice(attributes.price ?? 0);
     }
   }
 
   String getOff() {
-    if (this.attributes.promotional_price != null) {
-      double off = ((this.attributes.price ?? 0) - (this.attributes.promotional_price ?? 0)) / (this.attributes.price ?? 1) * 100;
-      return off.round().toString() + "% off";
+    if (attributes.promotional_price != null) {
+      double off = ((attributes.price ?? 0) - (attributes.promotional_price ?? 0)) / (attributes.price ?? 1) * 100;
+      return "${off.round()}% off";
     }
     else {
       return "0% off";
@@ -46,16 +46,16 @@ class Product {
 
   List<ImageData> getImages() {
     List<ImageData> l = [];
-    if (this.attributes.media != null) {
-      for(var item in this.attributes.media!.data) {
+    if (attributes.media != null) {
+      for(var item in attributes.media!.data) {
         ImageData c = ImageData.fromJson(item.toJson());
 
         l.add(c);
       }
     }
-    else if (this.attributes.image != null) {
-      l.add(this.attributes.image.data!);
-    }
+      
+    l.add(attributes.image.data!);
+    
     return l;
   }
 

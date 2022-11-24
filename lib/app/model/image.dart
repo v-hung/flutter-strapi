@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter_application_1/config/app.dart';
+
 class Image {
   final ImageData? data;
   Image({
@@ -31,6 +33,7 @@ class ImageData {
     required this.id,
     required this.attributes,
   });
+
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{

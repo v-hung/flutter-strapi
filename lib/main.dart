@@ -39,6 +39,7 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
           bodyText2: TextStyle(
