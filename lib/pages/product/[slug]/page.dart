@@ -19,7 +19,7 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     print(slug);
     return BlocProvider(
-      create: (context) => ProductDetailCubit(),
+      create: (context) => ProductDetailCubit()..loadData(slug),
       child: ProductDetailPageContent(slug: slug),
     );
   }
@@ -42,7 +42,7 @@ class _ProductDetailPageContentState extends State<ProductDetailPageContent> {
 
   @override
   Widget build(BuildContext context) {
-    context.read<ProductDetailCubit>().loadData(widget.slug);
+    // context.read<ProductDetailCubit>().loadData(widget.slug);
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -288,7 +288,7 @@ class _ProductDetailPageContentState extends State<ProductDetailPageContent> {
 
                               if (state.product.attributes.categories != null)...[
                                 BlocProvider(
-                                  create: (context) => FeaturedProductsCubit()..loadData(state.product.attributes.categories),
+                                  create: (context) => FeaturedProductsCubit()..loadData(state.product.attributes.categories, state.product.attributes.slug),
                                   child: const FeaturedProduct(),
                                 )
                               ],

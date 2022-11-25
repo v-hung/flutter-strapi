@@ -13,7 +13,7 @@ part 'featured_products_state.dart';
 class FeaturedProductsCubit extends Cubit<FeaturedProductsState> {
   FeaturedProductsCubit() : super(FeaturedProductsInitial());
 
-  Future<void> loadData(CategoryList? categories) async {
+  Future<void> loadData(CategoryList? categories, String slug) async {
     try {
       if (categories == null) {
         throw Exception("Error");
@@ -22,6 +22,7 @@ class FeaturedProductsCubit extends Cubit<FeaturedProductsState> {
       // await Future.delayed(const Duration(seconds: 1));
       var params = {
         'populate[0]': 'image',
+        'filters[slug][\$ne]': slug
       };
 
       for(var i = 0; i < categories.data.length; i++) {
