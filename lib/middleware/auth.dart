@@ -19,7 +19,7 @@ class AuthGuard extends AutoRouteGuard {
         // the navigation is paused until resolver.next() is called with either           
         // true to resume/continue navigation or false to abort navigation 
         final context = router.navigatorKey.currentContext;
-        print({context, userCubit.state});
+        // print({context, userCubit.state});
         if (context != null) {
             // print(context.read<UserState>());
         }

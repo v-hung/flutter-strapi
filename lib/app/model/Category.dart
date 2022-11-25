@@ -20,7 +20,7 @@ class Category {
   }
 
   String getIcon() {
-    return "https://" + HOST + (this.attributes.icon.data?.attributes.url ?? "");
+    return "https://" + HOST + (this.attributes.icon?.data?.attributes.url ?? "");
   }
 
   factory Category.fromMap(Map<String, dynamic> map) {
@@ -39,14 +39,14 @@ class CategoryAttributes {
   final String title;
   final String slug;
   final String? description;
-  final Image icon;
+  final Image? icon;
   final String createdAt;
   final String updatedAt;
   CategoryAttributes({
     required this.title,
     required this.slug,
     this.description,
-    required this.icon,
+    this.icon,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -56,7 +56,7 @@ class CategoryAttributes {
       'title': title,
       'slug': slug,
       'description': description,
-      'icon': icon.toMap(),
+      'icon': icon?.toMap(),
       'createdAt': createdAt,
       'updatedAt': updatedAt,
     };
@@ -67,7 +67,7 @@ class CategoryAttributes {
       title: map['title'] as String,
       slug: map['slug'] as String,
       description: map['description'] != null ? map['description'] as String : null,
-      icon: Image.fromMap(map['icon'] as Map<String,dynamic>),
+      icon: map['icon'] != null ? Image.fromMap(map['icon'] as Map<String,dynamic>) : null,
       createdAt: map['createdAt'] as String,
       updatedAt: map['updatedAt'] as String,
     );

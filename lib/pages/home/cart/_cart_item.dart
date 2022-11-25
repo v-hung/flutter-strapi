@@ -15,8 +15,8 @@ class CartItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 80,
-            height: 80,
+            width: 90,
+            height: 90,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.grey
@@ -37,7 +37,7 @@ class CartItem extends StatelessWidget {
           const SizedBox(width: 15,),
           Expanded(
             child: Container(
-              height: 80,
+              height: 90,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 // crossAxisAlignment: CrossAxisAlignment.end,

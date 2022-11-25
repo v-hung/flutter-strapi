@@ -15,10 +15,10 @@ class ProductDetailCubit extends Cubit<ProductDetailState> {
   Future<void> loadData(String slug) async {
     try {
       emit(const ProductDetailLoading());
-      // await Future.delayed(const Duration(seconds: 1));
+      // await Future.delayed(const Duration(seconds: 2));
       var params = {
         'filters[slug][\$eq]': slug,
-        'populate[0]': 'image,media',
+        'populate[0]': 'image,media,categories',
       };
       var url = Uri.https(HOST, 'api/products', params);
       var res = await http.get(url);
@@ -28,9 +28,9 @@ class ProductDetailCubit extends Cubit<ProductDetailState> {
       }
 
       var dataJSON = json.decode(res.body);
-      // print(dataJSON['data'][0]['attributes']['media']);
+      // print(dataJSON['data'][0]['attributes']);
       Product data = Product.fromMap(dataJSON['data'][0]);
-      // print(data.attributes.media?.toJson());
+      // print(data.attributes.toJson());
       emit(ProductDetailLoaded(product: data));
     }
     catch(e) {

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter_application_1/app/model/CategoryList.dart';
 import 'package:flutter_application_1/app/model/ImageList.dart';
 import 'package:flutter_application_1/app/model/image.dart';
 import 'package:flutter_application_1/config/app.dart';
@@ -46,15 +47,16 @@ class Product {
 
   List<ImageData> getImages() {
     List<ImageData> l = [];
-    if (attributes.media != null) {
-      for(var item in attributes.media!.data) {
+    if (attributes.media?.data != null) {
+      for(var item in attributes.media!.data!) {
         ImageData c = ImageData.fromJson(item.toJson());
 
         l.add(c);
       }
     }
-      
-    l.add(attributes.image.data!);
+    else {
+      l.add(attributes.image.data!);
+    }
     
     return l;
   }
@@ -80,6 +82,7 @@ class ProductAttributes {
   final double? promotional_price;
   final Image image;
   final ImageList? media;
+  final CategoryList? categories;
   final String createdAt;
   final String updatedAt;
 
@@ -92,6 +95,7 @@ class ProductAttributes {
     this.promotional_price,
     required this.image,
     this.media,
+    this.categories,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -106,6 +110,7 @@ class ProductAttributes {
       'promotional_price': promotional_price,
       'image': image.toMap(),
       'media': media?.toMap(),
+      'categories': categories?.toMap(),
       'createdAt': createdAt,
       'updatedAt': updatedAt,
     };
@@ -121,6 +126,7 @@ class ProductAttributes {
       promotional_price: map['promotional_price'] != null ? map['promotional_price'] as double : null,
       image: Image.fromMap(map['image'] as Map<String,dynamic>),
       media: map['media'] != null ? ImageList.fromMap(map['media'] as Map<String,dynamic>) : null,
+      categories: map['categories'] != null ? CategoryList.fromMap(map['categories'] as Map<String,dynamic>) : null,
       createdAt: map['createdAt'] as String,
       updatedAt: map['updatedAt'] as String,
     );

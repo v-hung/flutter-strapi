@@ -23,11 +23,11 @@
     "colId": "history",
     "containerId": "",
     "name": "strapi.viethung.fun/api/collections?filters[slug][$eq]=flash-sale&populate[0]=image,products&populate[1]=products.image",
-    "url": "strapi.viethung.fun/api/products?filters[slug][$eq]=beanie-hat-go-skate&populate[0]=image, media",
+    "url": "strapi.viethung.fun/api/products?filters[categories][slug][$in][0]=man-shoes&populate[0]=image, media, categories&filters[categories][slug][$in][1]=123123",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-21T09:06:33.984Z",
-    "modified": "2022-11-23T10:41:33.579Z",
+    "modified": "2022-11-25T09:31:02.100Z",
     "headers": [
       {
         "name": "Authorization",
@@ -37,13 +37,18 @@
     ],
     "params": [
       {
-        "name": "filters[slug][$eq]",
-        "value": "beanie-hat-go-skate",
+        "name": "filters[categories][slug][$in][0]",
+        "value": "man-shoes",
         "isPath": false
       },
       {
         "name": "populate[0]",
-        "value": "image, media",
+        "value": "image, media, categories",
+        "isPath": false
+      },
+      {
+        "name": "filters[categories][slug][$in][1]",
+        "value": "123123",
         "isPath": false
       }
     ],
