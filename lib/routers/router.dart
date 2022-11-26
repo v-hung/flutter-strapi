@@ -29,7 +29,7 @@ import 'package:flutter_application_1/pages/product/%5Bslug%5D/page.dart';
       path: '/products', page: EmptyRouterPage, guards: [AuthGuard],
       children: [
         // AutoRoute(path: '', page: EmptyRouterPage),
-        AutoRoute(path: ':slug', page: ProductDetailPage),
+        AutoRoute(path: ':slug', page: ProductDetailLayout),
       ]
     ),
     AutoRoute(

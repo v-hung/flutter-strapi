@@ -53,5 +53,519 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "a93757b3-6c5d-4aae-bed1-795978526ca0",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/users/me",
+    "url": "strapi.viethung.fun/api/users/me?populate=*",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:01:52.904Z",
+    "modified": "2022-11-26T08:33:27.715Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "populate",
+        "value": "*",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "0cec5aae-a8ab-4330-a7a3-4df1d8a64716",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate=*",
+    "url": "strapi.viethung.fun/api/carts?populate=*",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:22:43.379Z",
+    "modified": "2022-11-26T08:48:56.406Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate",
+        "value": "*",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "00799a71-fafa-4124-ae5f-0441f06e0b15",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:52:57.875Z",
+    "modified": "2022-11-26T08:52:57.875Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "b7d51e48-3bbf-4753-ab0d-9825c8d7ce89",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart-item",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart-item",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:53:01.961Z",
+    "modified": "2022-11-26T08:53:01.961Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart-item",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7a365e74-cc01-4c15-8f99-2399fc9e5199",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=*",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=*",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:53:05.306Z",
+    "modified": "2022-11-26T08:53:05.306Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "*",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "54016df5-18ce-4167-aee9-5e71be691e13",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart_item",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart_item",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:53:16.546Z",
+    "modified": "2022-11-26T08:53:16.546Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2bf85bfa-60bd-4b16-b55d-98ad9faba292",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart_item&populate[1]=cart_item.products",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart_item&populate[1]=cart_item.products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:53:27.280Z",
+    "modified": "2022-11-26T08:53:27.280Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.products",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "12617cc2-154b-470c-b968-80eafcb4a10d",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart_item&populate[1]=cart_item.product",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart_item&populate[1]=cart_item.product",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:53:28.858Z",
+    "modified": "2022-11-26T08:53:28.858Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.product",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1cb494e8-ccfe-4aea-b529-8e7b3b728fab",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:55:38.754Z",
+    "modified": "2022-11-26T08:55:38.754Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.product",
+        "isPath": false
+      },
+      {
+        "name": "populate[2]",
+        "value": "cart_item.product.image",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c309d696-d00e-40fc-9c76-1ca26ee13220",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?filters[users][id][$eq]=1&populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "url": "strapi.viethung.fun/api/carts?filters[users][id][$eq]=1&populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:55:51.427Z",
+    "modified": "2022-11-26T08:55:51.427Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.product",
+        "isPath": false
+      },
+      {
+        "name": "populate[2]",
+        "value": "cart_item.product.image",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9cdcbad7-393a-4c11-80fe-6f9b0255675e",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?populate[0]=cart_item,user&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "url": "strapi.viethung.fun/api/carts?populate[0]=cart_item,user&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:56:08.042Z",
+    "modified": "2022-11-26T08:56:08.042Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[users][id][$eq]",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item,user",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.product",
+        "isPath": false
+      },
+      {
+        "name": "populate[2]",
+        "value": "cart_item.product.image",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1c9a90e6-44d5-422c-95fc-75df775f2cc1",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?filters[user][id][$eq]=1&populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "url": "strapi.viethung.fun/api/carts?filters[user][id][$eq]=1&populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:56:59.602Z",
+    "modified": "2022-11-26T08:56:59.602Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[user][id][$eq]",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.product",
+        "isPath": false
+      },
+      {
+        "name": "populate[2]",
+        "value": "cart_item.product.image",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "54dd628a-a1b6-4aa0-866c-29c179fffc5e",
+    "colId": "history",
+    "containerId": "",
+    "name": "strapi.viethung.fun/api/carts?filters[user][id][$eq]=2&populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "url": "strapi.viethung.fun/api/carts?filters[user][id][$eq]=2&populate[0]=cart_item&populate[1]=cart_item.product&populate[2]=cart_item.product.image",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-26T08:57:05.425Z",
+    "modified": "2022-11-26T08:57:05.425Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5NDQ5OTcxLCJleHAiOjE2NzIwNDE5NzF9.MTK_j8j76nYn_icbrtW7SYCJwhySceKSmRgIGUdcAbk"
+      }
+    ],
+    "params": [
+      {
+        "name": "filters[user][id][$eq]",
+        "value": "2",
+        "isPath": false
+      },
+      {
+        "name": "populate[0]",
+        "value": "cart_item",
+        "isPath": false
+      },
+      {
+        "name": "populate[1]",
+        "value": "cart_item.product",
+        "isPath": false
+      },
+      {
+        "name": "populate[2]",
+        "value": "cart_item.product.image",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"filters[users][id][$eq]\": 2\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

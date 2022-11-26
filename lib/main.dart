@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/provider/cart/cart_cubit.dart';
 import 'package:flutter_application_1/app/provider/user/user_cubit.dart';
 import 'package:flutter_application_1/middleware/auth.dart';
 import 'package:flutter_application_1/pages/home/page.dart';
@@ -11,8 +12,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => UserCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => UserCubit()..logged(),
+        ),
+        BlocProvider(
+          create: (context) => CartCubit(),
+        ),
+      ],
       child: MainApp()
     );
   }
@@ -36,21 +44,34 @@ class _MainAppState extends State<MainApp> {
   }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Poppins',
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: TextTheme(
-          bodyText2: TextStyle(
-            color: Colors.grey[800]
+    return BlocListener<UserCubit, UserState>(
+      listenWhen: (previousState, state) {
+        if (state is UserLoaded)
+          return true;
+        return false;
+      },
+      listener: (context, state) {
+        if (state is UserLoaded) {
+          print({state});
+          context.read<CartCubit>().loadData(state.user);
+        }
+      },
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'Poppins',
+          scaffoldBackgroundColor: Colors.white,
+          textTheme: TextTheme(
+            bodyText2: TextStyle(
+              color: Colors.grey[800]
+            )
           )
-        )
+        ),
+        scrollBehavior: AppScrollBehavior(),
+        title: 'My app',
+        routerDelegate: _appRouter.delegate(),      
+        routeInformationParser: _appRouter.defaultRouteParser(),
       ),
-      scrollBehavior: AppScrollBehavior(),
-      title: 'My app',
-      routerDelegate: _appRouter.delegate(),      
-      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

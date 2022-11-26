@@ -18,8 +18,8 @@ class UserLoading extends UserState {
 }
 
 class UserLoaded extends UserState {
-  final User? user;
-  const UserLoaded({this.user});
+  final User user;
+  const UserLoaded({required this.user});
 }
 
 class UserError extends UserState {

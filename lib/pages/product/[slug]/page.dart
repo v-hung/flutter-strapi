@@ -10,25 +10,34 @@ import 'package:flutter_application_1/utils/price.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+class ProductDetailLayout extends StatelessWidget {
+  const ProductDetailLayout({super.key, @pathParam required this.slug});
+
+ final String slug;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => ProductDetailCubit(),
+      child: ProductDetailPage(slug: slug),
+    );
+  }
+}
+
 class ProductDetailPage extends StatelessWidget {
-  const ProductDetailPage({super.key, @pathParam required this.slug});
+  const ProductDetailPage({super.key, required this.slug});
 
   final String slug;
 
   @override
   Widget build(BuildContext context) {
-    print(slug);
-    return BlocProvider(
-      create: (context) => ProductDetailCubit()..loadData(slug),
-      child: ProductDetailPageContent(slug: slug),
-    );
+    context.read<ProductDetailCubit>().loadData(slug);
+    return ProductDetailPageContent();
   }
 }
 
 class ProductDetailPageContent extends StatefulWidget {
-  const ProductDetailPageContent({super.key, required this.slug});
-
-  final String slug;
+  const ProductDetailPageContent({super.key});
 
   @override
   State<ProductDetailPageContent> createState() => _ProductDetailPageContentState();

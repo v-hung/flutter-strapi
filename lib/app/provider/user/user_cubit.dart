@@ -30,7 +30,7 @@ class UserCubit extends Cubit<UserState> {
 
       var data = json.decode(res.body);
 
-      User user = User.fromJson(data['user']);
+      User user = User.fromMap(data['user']);
 
       final storage = new FlutterSecureStorage();
       await storage.write(key: 'token', value: data['jwt']);
@@ -40,6 +40,31 @@ class UserCubit extends Cubit<UserState> {
     catch(e) {
       emit(const UserError(error: 'Email or Password is correct'));
       rethrow;
+    }
+  }
+
+  Future<void> logged() async {
+    try {
+      final storage = new FlutterSecureStorage();
+      String? token = await storage.read(key: 'token');
+
+      var url = Uri.https(HOST, 'api/users/me');
+      var res = await http.get(url,
+        headers: {
+          'Authorization': 'Bearer $token'
+        }
+      );
+
+      if (res.statusCode != 200) {
+        throw Exception(res.reasonPhrase);
+      }
+
+      User user = User.fromJson(res.body);
+
+      emit(UserLoaded(user: user));
+    }
+    catch(e) {
+      emit(const UserError(error: 'ReLogin'));
     }
   }
 }

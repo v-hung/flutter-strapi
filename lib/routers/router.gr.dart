@@ -85,14 +85,14 @@ class AppRouter extends _i12.RootStackRouter {
         child: const _i8.AccountPage(),
       );
     },
-    ProductDetailRoute.name: (routeData) {
+    ProductDetailLayout.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<ProductDetailRouteArgs>(
+      final args = routeData.argsAs<ProductDetailLayoutArgs>(
           orElse: () =>
-              ProductDetailRouteArgs(slug: pathParams.getString('slug')));
+              ProductDetailLayoutArgs(slug: pathParams.getString('slug')));
       return _i12.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i9.ProductDetailPage(
+        child: _i9.ProductDetailLayout(
           key: args.key,
           slug: args.slug,
         ),
@@ -152,7 +152,7 @@ class AppRouter extends _i12.RootStackRouter {
           guards: [authGuard],
           children: [
             _i12.RouteConfig(
-              ProductDetailRoute.name,
+              ProductDetailLayout.name,
               path: ':slug',
               parent: EmptyRouterRoute.name,
             )
@@ -284,26 +284,26 @@ class AccountRoute extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.ProductDetailPage]
-class ProductDetailRoute extends _i12.PageRouteInfo<ProductDetailRouteArgs> {
-  ProductDetailRoute({
+/// [_i9.ProductDetailLayout]
+class ProductDetailLayout extends _i12.PageRouteInfo<ProductDetailLayoutArgs> {
+  ProductDetailLayout({
     _i13.Key? key,
     required String slug,
   }) : super(
-          ProductDetailRoute.name,
+          ProductDetailLayout.name,
           path: ':slug',
-          args: ProductDetailRouteArgs(
+          args: ProductDetailLayoutArgs(
             key: key,
             slug: slug,
           ),
           rawPathParams: {'slug': slug},
         );
 
-  static const String name = 'ProductDetailRoute';
+  static const String name = 'ProductDetailLayout';
 }
 
-class ProductDetailRouteArgs {
-  const ProductDetailRouteArgs({
+class ProductDetailLayoutArgs {
+  const ProductDetailLayoutArgs({
     this.key,
     required this.slug,
   });
@@ -314,7 +314,7 @@ class ProductDetailRouteArgs {
 
   @override
   String toString() {
-    return 'ProductDetailRouteArgs{key: $key, slug: $slug}';
+    return 'ProductDetailLayoutArgs{key: $key, slug: $slug}';
   }
 }
 
