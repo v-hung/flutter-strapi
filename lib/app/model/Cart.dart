@@ -50,7 +50,7 @@ class CartAttributes {
 
   factory CartAttributes.fromMap(Map<String, dynamic> map) {
     return CartAttributes(
-      cart_item: List<CartItem>.from((map['cart_item'] as List<int>).map<CartItem>((x) => CartItem.fromMap(x as Map<String,dynamic>),),),
+      cart_item: List<CartItem>.from((map['cart_item'] as List<dynamic>).map<CartItem>((x) => CartItem.fromMap(x as Map<String,dynamic>),),),
       createdAt: map['createdAt'] as String,
       updatedAt: map['updatedAt'] as String,
     );

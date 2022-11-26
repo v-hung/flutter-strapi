@@ -45,7 +45,7 @@ class UserCubit extends Cubit<UserState> {
 
   Future<void> logged() async {
     try {
-      final storage = new FlutterSecureStorage();
+      const storage = FlutterSecureStorage();
       String? token = await storage.read(key: 'token');
 
       var url = Uri.https(HOST, 'api/users/me');

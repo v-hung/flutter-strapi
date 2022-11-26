@@ -20,11 +20,20 @@ class HomeLayout extends StatelessWidget {
       builder: (context, child, animation) {   
         final tabsRouter = AutoTabsRouter.of(context);      
         return Scaffold(       
-          body: FadeTransition(          
-            opacity: animation,       
-            child: SafeArea(child: child),          
+          body: SafeArea(
+            child: Column(
+              children: [
+                Expanded(
+                  child: FadeTransition(          
+                    opacity: animation,       
+                    child: child,          
+                  ),
+                ),
+                HomeBottom(tabsRouter: tabsRouter,)
+              ],
+            ),
           ),          
-          bottomNavigationBar: HomeBottom(tabsRouter: tabsRouter,)
+          // bottomNavigationBar: HomeBottom(tabsRouter: tabsRouter,)
         );          
       },          
     );          

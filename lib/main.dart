@@ -46,13 +46,13 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return BlocListener<UserCubit, UserState>(
       listenWhen: (previousState, state) {
-        if (state is UserLoaded)
+        if (state is UserLoaded) {
           return true;
+        }
         return false;
       },
       listener: (context, state) {
         if (state is UserLoaded) {
-          print({state});
           context.read<CartCubit>().loadData(state.user);
         }
       },
