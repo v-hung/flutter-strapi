@@ -63,8 +63,11 @@ class _MainAppState extends State<MainApp> {
           scaffoldBackgroundColor: Colors.white,
           textTheme: TextTheme(
             bodyText2: TextStyle(
-              color: Colors.grey[800]
-            )
+              color: Colors.grey[700]
+            ),
+          ),
+          iconTheme: IconThemeData(
+            color: Colors.grey[700]
           )
         ),
         scrollBehavior: AppScrollBehavior(),
