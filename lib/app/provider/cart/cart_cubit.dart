@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_application_1/app/model/Cart.dart';
 import 'package:flutter_application_1/app/model/User.dart';
 import 'package:flutter_application_1/config/app.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,7 +15,10 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> loadData(User? user) async {
     try {
-      if (user == null) {
+      const storage = FlutterSecureStorage();
+      String? token = await storage.read(key: 'token');
+
+      if (user == null || token == null) {
         throw Exception("Error");
       }
 
@@ -28,7 +32,11 @@ class CartCubit extends Cubit<CartState> {
       };
 
       var url = Uri.https(HOST, 'api/carts', params);
-      var res = await http.get(url);
+      var res = await http.get(url,
+        headers: {
+          'Authorization': 'Bearer $token'
+        }
+      );
 
       if (res.statusCode != 200) {
         throw Exception(res.reasonPhrase);
@@ -61,16 +69,20 @@ class CartCubit extends Cubit<CartState> {
 
   Future<Cart?> createCart(User user) async {
     try {
+      const storage = FlutterSecureStorage();
+      String? token = await storage.read(key: 'token');
+      
       // await Future.delayed(const Duration(seconds: 1));
-      Object body = {
-        'data': {
-          'user': user.id.toString(),
-        }
-      };
-
-      var url = Uri.https(HOST, 'api/carts');
+      var url = Uri.https(HOST, 'api/carts', {'populate[0]': 'cart_item'});
       var res = await http.post(url,
-        body: body
+        body: {
+          'data': {
+            'user': user.id.toString(),
+          }
+        },
+        headers: {
+          'Authorization': 'Bearer $token'
+        }
       );
 
       if (res.statusCode != 200) {
@@ -80,6 +92,43 @@ class CartCubit extends Cubit<CartState> {
       var dataJSON = json.decode(res.body);
 
       Cart? cart = Cart.fromMap(dataJSON['data'][0]);
+
+      return cart;
+    }
+    catch(e) {
+      print(e);
+      return null;
+      rethrow;
+    }
+  }
+
+  Future<Cart?> updateCart(User user, Cart cart) async {
+    try {
+      const storage = FlutterSecureStorage();
+      String? token = await storage.read(key: 'token');
+      
+      // await Future.delayed(const Duration(seconds: 1));
+      var url = Uri.https(HOST, 'api/carts', {'populate[0]': 'cart_item'});
+      var res = await http.post(url,
+        body: {
+          'data': {
+            'user': user.id.toString(),
+          }
+        },
+        headers: {
+          'Authorization': 'Bearer $token'
+        }
+      );
+
+      if (res.statusCode != 200) {
+        throw Exception(res.reasonPhrase);
+      }
+
+      var dataJSON = json.decode(res.body);
+
+      Cart? cart = Cart.fromMap(dataJSON['data'][0]);
+
+      return cart;
     }
     catch(e) {
       print(e);
