@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter_application_1/app/provider/user/user_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeBottom extends StatelessWidget {
   final tabsRouter;
@@ -31,10 +34,11 @@ class HomeBottom extends StatelessWidget {
   Widget build(BuildContext context) {
 
     void changePage (int i)  {
-      if (i == 2) {
-        print(2);
-        _dialogBuilder(context);
-        return;
+      if (i == 2 || i == 3 || i == 4) {
+        if (context.read<UserCubit>().state is! UserLoaded) {
+          _dialogBuilder(context);
+          return;
+        }
       }
       tabsRouter.setActiveIndex(i); 
     }
@@ -116,26 +120,26 @@ class HomeBottom extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Basic dialog title'),
+          title: const Text('You not login'),
           content: const Text('A dialog is a type of modal window that\n'
-              'appears in front of app content to\n'
-              'provide critical information, or prompt\n'
-              'for a decision to be made.'),
+            'appears in front of app content to\n'
+            'provide critical information, or prompt\n'
+            'for a decision to be made.'),
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
                 textStyle: Theme.of(context).textTheme.labelLarge,
               ),
-              child: const Text('Disable'),
+              child: const Text('Login'),
               onPressed: () {
-                Navigator.of(context).pop();
+                context.router.pushNamed('/auth/login');
               },
             ),
             TextButton(
               style: TextButton.styleFrom(
                 textStyle: Theme.of(context).textTheme.labelLarge,
               ),
-              child: const Text('Enable'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

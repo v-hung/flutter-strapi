@@ -64,7 +64,7 @@ class UserCubit extends Cubit<UserState> {
       emit(UserLoaded(user: user));
     }
     catch(e) {
-      emit(const UserError(error: 'ReLogin'));
+      emit(const UserInitial());
     }
   }
 }
