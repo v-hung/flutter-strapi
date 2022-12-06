@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_application_1/app/model/product_list.dart';
-import 'package:flutter_application_1/app/model/Image.dart';
+import 'package:flutter_application_1/app/model/image.dart';
 
 class Collection {
   final int id;
