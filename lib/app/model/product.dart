@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:flutter_application_1/app/model/CategoryList.dart';
-import 'package:flutter_application_1/app/model/ImageList.dart';
+import 'package:flutter_application_1/app/model/category_list.dart';
+import 'package:flutter_application_1/app/model/image_list.dart';
 import 'package:flutter_application_1/app/model/image.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:flutter_application_1/utils/price.dart';

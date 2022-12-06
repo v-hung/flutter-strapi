@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_application_1/app/model/Cart.dart';
-import 'package:flutter_application_1/app/model/User.dart';
+import 'package:flutter_application_1/app/model/cart.dart';
+import 'package:flutter_application_1/app/model/user.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:meta/meta.dart';

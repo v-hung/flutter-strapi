@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_application_1/app/model/Collection.dart';
+import 'package:flutter_application_1/app/model/collection.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;

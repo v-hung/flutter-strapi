@@ -1,9 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:flutter_application_1/app/model/ProductList.dart';
-import 'package:flutter_application_1/app/model/image.dart';
-import 'package:flutter_application_1/app/model/product.dart';
+import 'package:flutter_application_1/app/model/product_list.dart';
+import 'package:flutter_application_1/app/model/Image.dart';
 
 class Collection {
   final int id;
