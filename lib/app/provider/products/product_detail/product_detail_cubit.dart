@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_application_1/app/model/ImageList.dart';
-import 'package:flutter_application_1/app/model/Product.dart';
+import 'package:flutter_application_1/app/model/image_list.dart';
+import 'package:flutter_application_1/app/model/product.dart';
 import 'package:flutter_application_1/config/app.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;

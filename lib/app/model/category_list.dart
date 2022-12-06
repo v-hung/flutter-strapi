@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:flutter_application_1/app/model/Category.dart';
+import 'package:flutter_application_1/app/model/category.dart';
 
 class CategoryList {
   final List<Category> data;

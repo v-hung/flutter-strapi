@@ -2,7 +2,6 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_application_1/app/provider/user/user_cubit.dart';
 
